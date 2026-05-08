@@ -1,8 +1,16 @@
+# ── Backend (Maven / Spring Boot) ─────────────
 HELP.md
 target/
+backend/target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
 
 ### STS ###
 .apt_generated
@@ -13,18 +21,18 @@ target/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-actions.xml
+
+# ── Frontend (Angular / Node) ──────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.vscode/
 
 ### VS Code ###
 .vscode/
