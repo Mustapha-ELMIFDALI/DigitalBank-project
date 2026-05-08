@@ -1,0 +1,19 @@
+<div class="app-wrapper">
+  <app-navbar></app-navbar>
+  <div class="d-flex" style="min-height: calc(100vh - 60px)">
+    <nav class="sidebar d-flex flex-column flex-shrink-0 p-3">
+      <a routerLink="/dashboard" routerLinkActive="active" class="sidebar-link">
+        <i class="bi bi-speedometer2 me-2"></i>Dashboard
+      </a>
+      <a routerLink="/customers" routerLinkActive="active" class="sidebar-link">
+        <i class="bi bi-people me-2"></i>Customers
+      </a>
+      <a routerLink="/accounts" routerLinkActive="active" class="sidebar-link">
+        <i class="bi bi-credit-card me-2"></i>Accounts
+      </a>
+    </nav>
+    <main class="main-content flex-grow-1 p-4">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
