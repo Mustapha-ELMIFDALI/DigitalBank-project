@@ -1,0 +1,25 @@
+.avatar-sm {
+  width: 32px;
+  height: 32px;
+  background: var(--db-light);
+  color: var(--db-primary);
+  font-weight: 700;
+  font-size: .85rem;
+  flex-shrink: 0;
+}
+
+.modal-backdrop-custom {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 1040;
+}
+
+.modal-inline {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050;
+  width: 100%;
+  max-width: 420px;
+  border-radius: .75rem;
+}

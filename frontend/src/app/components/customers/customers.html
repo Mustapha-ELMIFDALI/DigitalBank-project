@@ -1,0 +1,99 @@
+<div class="container-fluid py-2">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h1 class="page-title mb-0">Customers</h1>
+      <p class="text-muted small mb-0">Manage your bank customers</p>
+    </div>
+    <a routerLink="/customers/new" class="btn btn-primary">
+      <i class="bi bi-person-plus me-1"></i>Add Customer
+    </a>
+  </div>
+
+  <!-- Search -->
+  <div class="card mb-4">
+    <div class="card-body py-2">
+      <div class="input-group">
+        <span class="input-group-text bg-white border-end-0">
+          <i class="bi bi-search text-muted"></i>
+        </span>
+        <input type="text" class="form-control border-start-0 ps-0"
+               placeholder="Search by name or email…"
+               [(ngModel)]="searchTerm" (ngModelChange)="applyFilter()">
+      </div>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <span>All Customers</span>
+      <span class="badge rounded-pill" style="background:var(--db-light);color:var(--db-primary)">
+        {{ filtered.length }} records
+      </span>
+    </div>
+    <div class="card-body p-0">
+
+      @if (loading) {
+        <div class="text-center py-5">
+          <div class="spinner-border" style="color:var(--db-primary)" role="status"></div>
+        </div>
+      } @else {
+        <div class="table-responsive">
+          <table class="table table-hover mb-0">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (c of filtered; track c.id) {
+                <tr>
+                  <td class="text-muted">{{ c.id }}</td>
+                  <td class="fw-semibold">
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="avatar-sm d-flex align-items-center justify-content-center rounded-circle">
+                        {{ c.name.charAt(0).toUpperCase() }}
+                      </div>
+                      {{ c.name }}
+                    </div>
+                  </td>
+                  <td class="text-muted">{{ c.email }}</td>
+                  <td class="text-end">
+                    <a [routerLink]="['/customers', c.id]" class="btn btn-sm btn-outline-primary me-1">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                    <button class="btn btn-sm btn-outline-danger" (click)="confirmDelete(c)">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              }
+              @empty {
+                <tr><td colspan="4" class="text-center py-4 text-muted">No customers found.</td></tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Delete confirm modal (lightweight inline) -->
+  @if (deleteTarget) {
+    <div class="modal-backdrop-custom" (click)="deleteTarget = null"></div>
+    <div class="modal-inline card shadow-lg p-4">
+      <h5 class="fw-bold text-danger mb-2"><i class="bi bi-exclamation-triangle me-2"></i>Delete Customer</h5>
+      <p class="text-muted mb-3">Are you sure you want to delete <strong>{{ deleteTarget.name }}</strong>? This action cannot be undone.</p>
+      <div class="d-flex gap-2 justify-content-end">
+        <button class="btn btn-secondary btn-sm" (click)="deleteTarget = null">Cancel</button>
+        <button class="btn btn-danger btn-sm" (click)="doDelete()">Delete</button>
+      </div>
+    </div>
+  }
+
+</div>
