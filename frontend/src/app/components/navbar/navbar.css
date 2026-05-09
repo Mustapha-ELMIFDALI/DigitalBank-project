@@ -1,0 +1,22 @@
+.navbar-top {
+  height: 60px;
+  background: linear-gradient(90deg, var(--db-primary) 0%, var(--db-primary-hover) 100%);
+  box-shadow: 0 2px 8px rgba(30,58,138,.25);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,.2);
+  border-radius: 8px;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  font-size: 1rem;
+  cursor: pointer;
+}
