@@ -1,0 +1,14 @@
+.op-type-card {
+  border: 2px solid var(--db-border);
+  border-radius: .75rem;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+  background: #fff;
+}
+
+.op-type-card:hover { border-color: var(--db-secondary); }
+
+.op-type-card.selected {
+  border-color: var(--db-primary);
+  background: var(--db-lighter);
+}
