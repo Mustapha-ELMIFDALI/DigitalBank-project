@@ -6,6 +6,7 @@ import com.elmifdali.digitalbanking.enums.OperationType;
 import com.elmifdali.digitalbanking.repositories.AccountOperationRepository;
 import com.elmifdali.digitalbanking.repositories.BankAccountRepository;
 import com.elmifdali.digitalbanking.repositories.CustomerRepository;
+import com.elmifdali.digitalbanking.services.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,10 +26,30 @@ public class SmartBankAccountApplication {
     CommandLineRunner start(
             CustomerRepository customerRepository,
             BankAccountRepository bankAccountRepository,
-            AccountOperationRepository accountOperationRepository
+            AccountOperationRepository accountOperationRepository,
+            UserService userService
 ){
     return args -> {
 
+        // ── Default roles ────────────────────────────────────────
+        userService.saveRole(new AppRole(null, "ROLE_ADMIN"));
+        userService.saveRole(new AppRole(null, "ROLE_USER"));
+
+        // ── Default users ────────────────────────────────────────
+        AppUser admin = new AppUser();
+        admin.setUsername("admin");
+        admin.setPassword("1234");
+        userService.saveUser(admin);
+        userService.addRoleToUser("admin", "ROLE_ADMIN");
+        userService.addRoleToUser("admin", "ROLE_USER");
+
+        AppUser user1 = new AppUser();
+        user1.setUsername("user1");
+        user1.setPassword("1234");
+        userService.saveUser(user1);
+        userService.addRoleToUser("user1", "ROLE_USER");
+
+        // ── Bank data ────────────────────────────────────────────
         Stream.of("hassan","Ilyas","sdek").forEach(name->{
             Customer customer =new Customer();
             customer.setName(name);
