@@ -1,0 +1,1 @@
+.table tbody tr:hover { background: var(--db-lighter); cursor: pointer; }

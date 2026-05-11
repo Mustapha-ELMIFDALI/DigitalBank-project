@@ -138,3 +138,20 @@ body {
   border-color: var(--db-secondary);
   box-shadow: 0 0 0 .2rem rgba(59,130,246,.2);
 }
+
+/* ── Pagination ───────────────────────────── */
+.page-item.active .page-link {
+  background-color: var(--db-primary);
+  border-color: var(--db-primary);
+}
+.page-link { color: var(--db-primary); }
+.page-link:hover { color: var(--db-primary-hover); }
+
+/* ── Page-entry animation ─────────────────── */
+router-outlet + * {
+  animation: fadeIn .25s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
