@@ -34,7 +34,7 @@ export class AccountsComponent implements OnInit {
     let list = [...this.accounts];
     if (this.filterType !== 'ALL') list = list.filter(a => a.type === this.filterType);
     const t = this.searchTerm.toLowerCase();
-    if (t) list = list.filter(a => a.id.toLowerCase().includes(t) || a.customerDTO?.name?.toLowerCase().includes(t));
+    if (t) list = list.filter(a => a.id.toLowerCase().includes(t) || a.customerDTO.name.toLowerCase().includes(t));
     this.filtered = list;
   }
 

@@ -147,11 +147,40 @@ body {
 .page-link { color: var(--db-primary); }
 .page-link:hover { color: var(--db-primary-hover); }
 
+/* ── Sidebar active left-border indicator ─── */
+.sidebar-link.active {
+  border-left: 3px solid rgba(255,255,255,.85);
+  padding-left: calc(1rem - 3px);
+}
+
+/* ── Table row hover ──────────────────────── */
+.table-hover > tbody > tr:hover > td {
+  background: var(--db-lighter);
+}
+
+/* ── Card hover lift ──────────────────────── */
+.card-lift {
+  transition: transform .2s, box-shadow .2s;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(30,58,138,.12);
+}
+
+/* ── Spinner accent ───────────────────────── */
+.spinner-border { color: var(--db-primary); }
+
+/* ── Scrollbar ────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--db-lighter); }
+::-webkit-scrollbar-thumb { background: var(--db-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--db-secondary); }
+
 /* ── Page-entry animation ─────────────────── */
 router-outlet + * {
-  animation: fadeIn .25s ease-out;
+  animation: fadeIn .3s ease-out;
 }
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
+  from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }

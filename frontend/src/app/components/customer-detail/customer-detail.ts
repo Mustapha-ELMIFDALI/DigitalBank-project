@@ -35,7 +35,7 @@ export class CustomerDetailComponent implements OnInit {
       error: () => this.loading = false
     });
     this.bankAccountService.getAccounts().subscribe({
-      next: (all) => this.accounts = all.filter(a => a.customerDTO?.id === id),
+      next: (all) => this.accounts = all.filter(a => a.customerDTO.id === id),
       error: () => {}
     });
   }

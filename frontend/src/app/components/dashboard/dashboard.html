@@ -120,7 +120,7 @@
             @for (acc of accounts.slice(0,5); track acc.id) {
               <tr style="cursor:pointer" [routerLink]="['/accounts', acc.id]">
                 <td class="font-monospace text-muted small">{{ acc.id | slice:0:12 }}…</td>
-                <td>{{ acc.customerDTO?.name }}</td>
+                <td>{{ acc.customerDTO.name }}</td>
                 <td>
                   @if (acc.type === 'CurrentBankAccountDTO') {
                     <span class="badge bg-primary bg-opacity-10 text-primary">Current</span>

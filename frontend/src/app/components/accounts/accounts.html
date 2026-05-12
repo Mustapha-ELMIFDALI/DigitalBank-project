@@ -93,7 +93,7 @@
               @for (acc of filtered; track acc.id) {
                 <tr>
                   <td class="font-monospace text-muted small">{{ acc.id | slice:0:12 }}…</td>
-                  <td class="fw-semibold">{{ acc.customerDTO?.name }}</td>
+                  <td class="fw-semibold">{{ acc.customerDTO.name }}</td>
                   <td>
                     @if (acc.type === 'CurrentBankAccountDTO') {
                       <span class="badge bg-primary bg-opacity-10 text-primary">
