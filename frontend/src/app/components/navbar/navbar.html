@@ -7,15 +7,38 @@
   </a>
 
   <div class="d-flex align-items-center gap-3">
-    <div class="navbar-item d-flex align-items-center gap-2">
-      <i class="bi bi-bell text-white opacity-75 fs-5"></i>
-      <span class="badge rounded-pill bg-danger" style="font-size:.65rem">3</span>
+
+    <!-- Admin badge -->
+    @if (authService.isAdmin()) {
+      <span class="badge rounded-pill px-3 py-1"
+            style="background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;letter-spacing:.5px">
+        <i class="bi bi-shield-check me-1"></i>ADMIN
+      </span>
+    }
+
+    <!-- Notification bell -->
+    <div class="position-relative">
+      <i class="bi bi-bell text-white opacity-75 fs-5" style="cursor:pointer"></i>
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            style="font-size:.6rem">3</span>
     </div>
+
+    <!-- User info + logout -->
     <div class="d-flex align-items-center gap-2">
       <div class="avatar d-flex align-items-center justify-content-center rounded-circle bg-white">
         <i class="bi bi-person-fill" style="color:var(--db-primary)"></i>
       </div>
-      <span class="text-white fw-semibold" style="font-size:.9rem">Admin</span>
+      <div class="d-flex flex-column lh-1">
+        <span class="text-white fw-semibold" style="font-size:.88rem">
+          {{ authService.getUsername() }}
+        </span>
+        <span class="text-white opacity-60" style="font-size:.72rem">
+          {{ authService.isAdmin() ? 'Administrator' : 'User' }}
+        </span>
+      </div>
+      <button class="btn btn-sm ms-2 logout-btn" (click)="logout()" title="Sign out">
+        <i class="bi bi-box-arrow-right text-white fs-5"></i>
+      </button>
     </div>
   </div>
 </nav>

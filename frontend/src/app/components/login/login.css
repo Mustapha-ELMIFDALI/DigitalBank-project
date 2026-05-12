@@ -1,0 +1,28 @@
+.login-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--db-primary) 0%, var(--db-secondary) 100%);
+}
+
+.login-card {
+  background: var(--db-white);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(30,58,138,.35);
+}
+
+.login-logo {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, var(--db-primary) 0%, var(--db-secondary) 100%);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hint-box {
+  background: var(--db-lighter);
+  border: 1px solid var(--db-border);
+}
